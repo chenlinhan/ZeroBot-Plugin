@@ -25,9 +25,6 @@ import (
 	//                          vvvvvvvvvvvvvv                          //
 	//                               vvvv                               //
 
-	_ "github.com/FloatTech/ZeroBot-Plugin/plugin/manager" // 群管
-
-	_ "github.com/FloatTech/zbputils/job" // 定时指令触发器
 
 	//                               ^^^^                               //
 	//                          ^^^^^^^^^^^^^^                          //
@@ -54,38 +51,31 @@ import (
 	_ "github.com/FloatTech/ZeroBot-Plugin/plugin/choose"         // 选择困难症帮手
 	_ "github.com/FloatTech/ZeroBot-Plugin/plugin/coser"          // 三次元小姐姐
 	_ "github.com/FloatTech/ZeroBot-Plugin/plugin/danbooru"       // DeepDanbooru二次元图标签识别
+	_ "github.com/FloatTech/ZeroBot-Plugin/plugin/drift_bottle"   // 漂流瓶
 	_ "github.com/FloatTech/ZeroBot-Plugin/plugin/emojimix"       // 合成emoji
 	_ "github.com/FloatTech/ZeroBot-Plugin/plugin/epidemic"       // 城市疫情查询
 	_ "github.com/FloatTech/ZeroBot-Plugin/plugin/fortune"        // 运势
 	_ "github.com/FloatTech/ZeroBot-Plugin/plugin/funny"          // 笑话
-	_ "github.com/FloatTech/ZeroBot-Plugin/plugin/github"         // 搜索GitHub仓库
-	_ "github.com/FloatTech/ZeroBot-Plugin/plugin/hs"             // 炉石
+	_ "github.com/FloatTech/ZeroBot-Plugin/plugin/genshin"        // 原神抽
 	_ "github.com/FloatTech/ZeroBot-Plugin/plugin/hyaku"          // 百人一首
 	_ "github.com/FloatTech/ZeroBot-Plugin/plugin/image_finder"   // 关键字搜图
-	_ "github.com/FloatTech/ZeroBot-Plugin/plugin/inject"         // 注入指令
 	_ "github.com/FloatTech/ZeroBot-Plugin/plugin/jandan"         // 煎蛋网无聊图
-	_ "github.com/FloatTech/ZeroBot-Plugin/plugin/lolicon"        // lolicon 随机图片
+	_ "github.com/FloatTech/ZeroBot-Plugin/plugin/juejuezi"       // 绝绝子生成器
 	_ "github.com/FloatTech/ZeroBot-Plugin/plugin/moyu"           // 摸鱼
 	_ "github.com/FloatTech/ZeroBot-Plugin/plugin/moyu_calendar"  // 摸鱼人日历
 	_ "github.com/FloatTech/ZeroBot-Plugin/plugin/music"          // 点歌
-	_ "github.com/FloatTech/ZeroBot-Plugin/plugin/nativesetu"     // 本地涩图
 	_ "github.com/FloatTech/ZeroBot-Plugin/plugin/nativewife"     // 本地老婆
-	_ "github.com/FloatTech/ZeroBot-Plugin/plugin/novel"          // 铅笔小说网搜索
 	_ "github.com/FloatTech/ZeroBot-Plugin/plugin/nsfw"           // nsfw图片识别
 	_ "github.com/FloatTech/ZeroBot-Plugin/plugin/omikuji"        // 浅草寺求签
-	_ "github.com/FloatTech/ZeroBot-Plugin/plugin/runcode"        // 在线运行代码
 	_ "github.com/FloatTech/ZeroBot-Plugin/plugin/saucenao"       // 以图搜图
 	_ "github.com/FloatTech/ZeroBot-Plugin/plugin/scale"          // 叔叔的AI二次元图片放大
 	_ "github.com/FloatTech/ZeroBot-Plugin/plugin/score"          // 分数
-	_ "github.com/FloatTech/ZeroBot-Plugin/plugin/setutime"       // 来份涩图
 	_ "github.com/FloatTech/ZeroBot-Plugin/plugin/shadiao"        // 沙雕app
 	_ "github.com/FloatTech/ZeroBot-Plugin/plugin/shindan"        // 测定
 	_ "github.com/FloatTech/ZeroBot-Plugin/plugin/tarot"          // 抽塔罗牌
-	_ "github.com/FloatTech/ZeroBot-Plugin/plugin/tiangou"        // 舔狗日记
 	_ "github.com/FloatTech/ZeroBot-Plugin/plugin/tracemoe"       // 搜番
 	_ "github.com/FloatTech/ZeroBot-Plugin/plugin/translation"    // 翻译
 	_ "github.com/FloatTech/ZeroBot-Plugin/plugin/wangyiyun"      // 网易云音乐热评
-	_ "github.com/FloatTech/ZeroBot-Plugin/plugin/word_count"     // 聊天热词
 	_ "github.com/FloatTech/ZeroBot-Plugin/plugin/wordle"         // 猜单词
 	_ "github.com/FloatTech/ZeroBot-Plugin/plugin/ymgal"          // 月幕galgame
 
@@ -109,6 +99,8 @@ import (
 	//                      vvvvvvv低优先级区vvvvvvv                      //
 	//                          vvvvvvvvvvvvvv                          //
 	//                               vvvv                               //
+
+
 
 	//                               ^^^^                               //
 	//                          ^^^^^^^^^^^^^^                          //
@@ -171,8 +163,8 @@ func init() {
 	}
 
 	// 通过代码写死的方式添加主人账号
-	sus = append(sus, 2175097454)
-	sus = append(sus, 2668966708)
+	 sus = append(sus, 390939260)
+	// sus = append(sus, 87654321)
 
 	if *runcfg != "" {
 		f, err := os.Open(*runcfg)
@@ -195,7 +187,7 @@ func init() {
 
 	config.W = []*driver.WSClient{driver.NewWebSocketClient(*url, *token)}
 	config.Z = zero.Config{
-		NickName:      append([]string{*adana}, "alice", "Alice"),
+		NickName:      append([]string{*adana}, "ALICE", "alice"),
 		CommandPrefix: *prefix,
 		SuperUsers:    sus,
 		Driver:        []zero.Driver{config.W[0]},
